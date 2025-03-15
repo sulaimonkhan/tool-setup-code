@@ -1,6 +1,6 @@
 resource "aws_security_group" "sg" {
   name        = "{var.tool_name}-sg"
-  description = "Inbound allow for ${var.component_name}"
+  description = "Inbound allow for ${var.tool_name}"
 
   ingress {
     from_port   = 22
@@ -44,7 +44,7 @@ resoure "aws_route53_record" "record-public" {
   name    = "${var.tool_name}.${var.domain_name}"
   type    = "A"
   TTL     = "30"
-  records = [aws_instance.instance.private_ip]
+  records = [aws_instance.instance.public_ip]
 }
 
 
