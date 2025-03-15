@@ -36,7 +36,10 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = [aws_security_group.sg.id]
   tags = {
     Name = var.tool_name  
-  }     
+  }  
+  root_block_device {
+    volume_size = var.volume_size
+  }   
 }
 
 resource "aws_route53_record" "record-public" {
