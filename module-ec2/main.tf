@@ -43,7 +43,7 @@ resource "aws_route53_record" "record-public" {
   zone_id = var.zone_id  
   name    = "${var.tool_name}.${var.domain_name}"
   type    = "A"
-  TTL     = "30"
+  ttl     = "30"
   records = [aws_instance.instance.public_ip]
 }
 
