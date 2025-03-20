@@ -17,11 +17,10 @@ variable "vault_token" {}
 resource "vault_generic_secret" "roboshop-dev" {
   path = "roboshop-dev/frontend"
 
-  data_json = <<EOT    
-}
-  "foo":    "bar",
-  "pizza":  "cheese"
-
+  data_json = <<EOT
 {
-  EOT    
-}  
+  "foo":   "bar",
+  "pizza": "cheese"
+}
+EOT
+}
